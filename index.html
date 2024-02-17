@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>小泉</title>
+    <script>
+        var stopLoop = false;
+
+        function generateFalse() {
+            return false;
+        }
+        
+        setInterval(function() {
+            if (stopLoop) {
+                console.log('Stopped');
+                return;
+            }
+            
+            if (generateFalse()) {
+                location.reload();
+            }
+        }, 2000);
+
+        function checkInput() {
+            var inputValue = document.getElementById('inputBox').value;
+            if (inputValue === 's' || inputValue === 'stop' || inputValue === '停止') {
+                stopLoop = true;
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="inputBox">
+    <button onclick="checkInput()">送信</button>
+</body>
+</html>
